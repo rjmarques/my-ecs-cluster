@@ -15,7 +15,6 @@ variable "ecs_key_pair_name" {
 
 variable "region" {
   description = "AWS region"
-  default     = "eu-west-2"
 }
 
 variable "availability_zone" {
@@ -35,16 +34,15 @@ variable "min_instance_size" {
   default     = "0"
 }
 
-## Twitter account creds
-variable "twitter_client_id" {
-  description = "Twitter account client id used to connect to the Twitter API"
+## Various container defintions 
+variable "container_definitions" {
+  description = "The containers that will be part of the main task"
+  type        = list(string)
+  default     = []
 }
 
-variable "twitter_client_secret" {
-  description = "Twitter account client secret used to connect to the Twitter API"
-}
-
-## Postgres URL
-variable "postgres_url" {
-  description = "URL of the Postgres database that the instances can connect to"
+variable "secrets_arns" {
+  description = "The arns of various secrets that need to be loaded onto the ECS tasks"
+  type        = list(string)
+  default     = []
 }
