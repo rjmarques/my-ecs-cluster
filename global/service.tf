@@ -15,5 +15,5 @@ resource "aws_ecs_service" "hobby-ecs-service" {
   }
 
   deployment_maximum_percent         = 100
-  deployment_minimum_healthy_percent = 50
+  deployment_minimum_healthy_percent = 0
 }
