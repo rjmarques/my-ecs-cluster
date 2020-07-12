@@ -10,10 +10,20 @@ module global {
   region     = var.region
 
   container_definitions = [
+    module.nginx.container_definition,
     module.sotd.container_definition
   ]
 
-  secrets_arns = module.sotd.secrets_arns
+  secrets_arns = concat(
+    module.nginx.secrets_arns,
+    module.sotd.secrets_arns
+  )
+}
+
+module nginx {
+  source = "./nginx/aws"
+
+  region = var.region
 }
 
 module sotd {
