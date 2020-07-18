@@ -4,7 +4,7 @@ set -e
 
 ME=$(basename $0)
 
-echo "$ME: starting up nginx" 1>&2
+echo "$ME: starting up nginx specifically to accept certificate challenges" 1>&2
 
 nginx
 
