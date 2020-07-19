@@ -17,5 +17,11 @@
     }
   ],
   "links": ["something-of-the-day"],
-  "networkMode": "bridge"
+  "networkMode": "bridge",
+  "mountPoints": [
+    {
+      "sourceVolume": "letsencrypt",
+      "containerPath": "/etc/letsencrypt"
+    }
+  ]
 }
