@@ -1,0 +1,27 @@
+{
+  "name": "nginx",
+  "image": "${repository_url}:latest",
+  "memory": 128,
+  "cpu": 256,
+  "essential": true,
+  "portMappings": [
+    {
+      "containerPort": 80,
+      "hostPort": 80,
+      "protocol": "tcp"
+    },
+    {
+      "containerPort": 443,
+      "hostPort": 443,
+      "protocol": "tcp"
+    }
+  ],
+  "links": ["something-of-the-day"],
+  "networkMode": "bridge",
+  "mountPoints": [
+    {
+      "sourceVolume": "letsencrypt",
+      "containerPath": "/etc/letsencrypt"
+    }
+  ]
+}
