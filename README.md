@@ -16,7 +16,7 @@ This document assumes you're able to place env vars in your `~/.bash_profile`, o
 
 ## Cluster topology
 
-I want my apps to be reletively simple and not have to worry about common REST endpoint concerns (e.g., encryption, gzip, caching). As such, I decide to offload those concerns to an NGINX reverse-proxy container that links to all my deployed apps, and is public facing.
+I want my apps to be relatively simple and not have to worry about common REST endpoint concerns (e.g., encryption, gzip, caching). As such, I decide to offload those concerns to an NGINX reverse-proxy container that links to all my deployed apps, and is public facing.
 
 Therefore, all HTTP requests are sent to NGINX and it decides how best to route them. Further, my app containers don't need to map to Host ports, and their APIs are private to the Docker bridge network where they all reside.
 
