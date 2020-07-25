@@ -10,7 +10,6 @@ variable "account_id" {
 
 variable "ecs_key_pair_name" {
   description = "EC2 instance key pair name"
-  default     = "ecs-cluster-key"
 }
 
 variable "region" {
@@ -19,7 +18,6 @@ variable "region" {
 
 variable "availability_zone" {
   description = "AWS Subnet Availablity Zone"
-  default     = "eu-west-2a"
 }
 
 ## Autoscale Config
@@ -34,7 +32,7 @@ variable "min_instance_size" {
   default     = "0"
 }
 
-## Various container defintions 
+## Various container definitions 
 variable "container_definitions" {
   description = "The containers that will be part of the main task"
   type        = list(string)

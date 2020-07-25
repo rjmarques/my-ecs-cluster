@@ -8,6 +8,16 @@ variable "region" {
   default     = "eu-west-2"
 }
 
+variable "availability_zone" {
+  description = "AWS Subnet Availablity Zone"
+  default     = "eu-west-2a"
+}
+
+variable "ecs_key_pair_name" {
+  description = "EC2 instance key pair name"
+  default     = "ecs-cluster-key"
+}
+
 ## Twitter account creds
 variable "twitter_client_id" {
   description = "Twitter account client id used to connect to the Twitter API"
