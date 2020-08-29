@@ -64,7 +64,9 @@ resource "aws_iam_policy" "ecs-secrets-access-policy" {
         {
             "Effect": "Allow",
             "Action": [
-                "secretsmanager:GetSecretValue"
+                "ssm:GetParameters",
+                "secretsmanager:GetSecretValue",
+                "kms:Decrypt"
             ],
             "Resource": ${jsonencode(var.secrets_arns)}
         }
