@@ -2,7 +2,7 @@
   "name": "nginx",
   "image": "${repository_url}:latest",
   "memory": 128,
-  "cpu": 256,
+  "cpu": 512,
   "essential": true,
   "portMappings": [
     {
@@ -16,7 +16,7 @@
       "protocol": "tcp"
     }
   ],
-  "links": ["something-of-the-day"],
+  "links": ["personal-website", "something-of-the-day"],
   "networkMode": "bridge",
   "mountPoints": [
     {

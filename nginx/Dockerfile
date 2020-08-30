@@ -9,6 +9,6 @@ RUN apt-get install -y gpg certbot python-certbot-nginx cron
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
-COPY run.sh /
+COPY run.sh /run.sh
 
 CMD ["./run.sh"]

@@ -13,11 +13,13 @@ module global {
 
   container_definitions = [
     module.nginx.container_definition,
+    module.personal-website.container_definition,
     module.sotd.container_definition
   ]
 
   secrets_arns = concat(
     module.nginx.secrets_arns,
+    module.personal-website.secrets_arns,
     module.sotd.secrets_arns
   )
 }
@@ -29,6 +31,17 @@ module nginx {
 }
 
 # Below are my app modules. If you use different apps they should be defined here instead.
+
+module personal-website {
+  source = "git@github.com:rjmarques/personal-website//terraform/aws"
+
+  region           = var.region
+  recaptcha_secret = var.recaptcha_secret
+  smtp_host        = var.smtp_host
+  smtp_user        = var.smtp_user
+  smtp_password    = var.smtp_password
+  contact_email    = var.contact_email
+}
 
 module sotd {
   source = "git@github.com:rjmarques/something-of-the-day//terraform/aws"
