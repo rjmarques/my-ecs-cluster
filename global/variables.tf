@@ -24,7 +24,7 @@ variable "availability_zone" {
 
 variable "max_instance_size" {
   description = "Maximum number of instances in the cluster"
-  default     = "2"
+  default     = "1"
 }
 
 variable "min_instance_size" {
