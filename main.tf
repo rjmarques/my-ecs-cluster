@@ -3,7 +3,7 @@ terraform {
   }
 }
 
-module global {
+module "global" {
   source = "./global"
 
   account_id        = var.account_id
@@ -24,7 +24,7 @@ module global {
   )
 }
 
-module nginx {
+module "nginx" {
   source = "./nginx/aws"
 
   region = var.region
@@ -32,7 +32,7 @@ module nginx {
 
 # Below are my app modules. If you use different apps they should be defined here instead.
 
-module personal-website {
+module "personal-website" {
   source = "git@github.com:rjmarques/personal-website//terraform/aws"
 
   region           = var.region
@@ -43,7 +43,7 @@ module personal-website {
   contact_email    = var.contact_email
 }
 
-module sotd {
+module "sotd" {
   source = "git@github.com:rjmarques/something-of-the-day//terraform/aws"
 
   region                = var.region
