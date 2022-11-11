@@ -1,5 +1,10 @@
 terraform {
-  backend "pg" {
+  backend "s3" {
+    bucket  = "ricardomarq-hobby-terraform-state"
+    encrypt = true
+    key     = "terraform.tfstate"
+    region  = "eu-west-2"
+    profile = "hobby-projects"
   }
 }
 
