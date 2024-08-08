@@ -22,6 +22,10 @@
     {
       "sourceVolume": "letsencrypt",
       "containerPath": "/etc/letsencrypt"
+    },
+    {
+      "sourceVolume": "cache",
+      "containerPath": "/var/nginx/cache"
     }
   ]
 }

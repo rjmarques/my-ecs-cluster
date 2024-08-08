@@ -44,3 +44,12 @@ variable "secrets_arns" {
   type        = list(string)
   default     = []
 }
+
+variable "static_website_files" {
+  description = "The file paths of various static files that need to be uploaded to S3"
+  type        = map(object({
+    build_path = string
+    files      = list(string) 
+  }))
+  default     = {}
+}

@@ -52,3 +52,10 @@ resource "aws_security_group" "ecs_security_group" {
     Name = "allow_http_&_ssh"
   }
 }
+
+resource "aws_vpc_endpoint" "ec2_to_s3" {
+  vpc_id = aws_default_vpc.default.id
+  service_name = "com.amazonaws.${var.region}.s3"
+  vpc_endpoint_type = "Gateway"
+  route_table_ids = [aws_default_vpc.default.main_route_table_id]
+}

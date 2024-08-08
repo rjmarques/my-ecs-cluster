@@ -27,6 +27,13 @@ module "global" {
     module.personal-website.secrets_arns,
     module.sotd.secrets_arns
   )
+
+  static_website_files = {
+    "${module.solar.target_name}" = {
+      build_path = module.solar.build_path
+      files = module.solar.static_files
+    }
+  }
 }
 
 module "nginx" {
@@ -55,4 +62,10 @@ module "sotd" {
   twitter_client_id     = var.twitter_client_id
   twitter_client_secret = var.twitter_client_secret
   postgres_url          = var.postgres_url
+}
+
+# These modules are static websites that need to be uploaded to S3
+
+module "solar" {
+  source = "git@github.com:rjmarques/SolarSystem"
 }

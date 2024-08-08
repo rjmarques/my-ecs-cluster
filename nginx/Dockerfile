@@ -11,4 +11,5 @@ COPY nginx.conf /etc/nginx/nginx.conf
 
 COPY run.sh /run.sh
 
+ENTRYPOINT ["/bin/bash"]
 CMD ["./run.sh"]

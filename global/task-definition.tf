@@ -15,4 +15,15 @@ resource "aws_ecs_task_definition" "hobby-projects" {
       driver        = "local"
     }
   }
+
+  # where cached resources (e.g., html, js, image) are stored
+  volume {
+    name = "cache"
+
+    docker_volume_configuration {
+      scope         = "shared"
+      autoprovision = true
+      driver        = "local"
+    }
+  }
 }
