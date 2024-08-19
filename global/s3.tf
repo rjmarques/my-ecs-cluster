@@ -17,6 +17,7 @@ locals {
     ".html"  = "text/html",
     ".css"   = "text/css",
     ".js"    = "application/javascript",
+    ".wasm"  = "application/wasm",
     ".jpg"   = "image/jpeg",
     ".png"   = "image/png",
     ".json"  = "text/json",
@@ -25,7 +26,7 @@ locals {
   } 
 }
 
-resource "aws_s3_object" "solar_files" {
+resource "aws_s3_object" "static_files" {
   for_each = { for k, v in local.flatten_static_files : "${v.source}${v.file_path}" => v }
 
   bucket = aws_s3_bucket.hobby_static_websites.bucket

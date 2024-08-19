@@ -32,6 +32,10 @@ module "global" {
     "${module.solar.target_name}" = {
       build_path = module.solar.build_path
       files = module.solar.static_files
+    },
+    "${module.webasm.target_name}" = {
+      build_path = module.webasm.build_path
+      files = module.webasm.static_files
     }
   }
 }
@@ -68,4 +72,8 @@ module "sotd" {
 
 module "solar" {
   source = "git@github.com:rjmarques/SolarSystem"
+}
+
+module "webasm" {
+  source = "git@github.com:rjmarques/webasm-mandelbrot"
 }
