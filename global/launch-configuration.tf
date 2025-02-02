@@ -1,12 +1,15 @@
 resource "aws_launch_configuration" "ecs-launch-configuration" {
   name_prefix          = "hobby-ecs-launch-configuration"
-  image_id             = "ami-03ec263c71e44528d"
+  # image_id             = "ami-050d140dbea0078a5" offical AWS 30GB
+  image_id             = "ami-0d2b5e8f794d68452"
   instance_type        = "t3a.nano"
   iam_instance_profile = aws_iam_instance_profile.ecs-instance-profile.id
 
   root_block_device {
-    volume_type           = "standard"
-    volume_size           = 30
+    volume_type           = "gp3"
+    volume_size           = 10
+    iops                  = 3000
+    throughput            = 125
     delete_on_termination = true
   }
 
