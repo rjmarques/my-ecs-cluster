@@ -16,7 +16,7 @@
       "protocol": "tcp"
     }
   ],
-  "links": ["personal-website", "something-of-the-day"],
+  "links": ["something-of-the-day"],
   "networkMode": "bridge",
   "mountPoints": [
     {
