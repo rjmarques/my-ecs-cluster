@@ -25,17 +25,6 @@ module "global" {
     module.nginx.secrets_arns,
     module.sotd.secrets_arns
   )
-
-  static_website_files = {
-    "${module.solar.target_name}" = {
-      build_path = module.solar.build_path
-      files = module.solar.static_files
-    },
-    "${module.webasm.target_name}" = {
-      build_path = module.webasm.build_path
-      files = module.webasm.static_files
-    }
-  }
 }
 
 module "nginx" {
@@ -55,12 +44,3 @@ module "sotd" {
   postgres_url          = var.postgres_url
 }
 
-# These modules are static websites that need to be uploaded to S3
-
-module "solar" {
-  source = "git@github.com:rjmarques/SolarSystem"
-}
-
-module "webasm" {
-  source = "git@github.com:rjmarques/webasm-mandelbrot"
-}
